@@ -1,8 +1,8 @@
 {pause up #perf}
-### 🐉 A Beast to Slay: Large Buffers with Cold Caches
+## 🐉 A Beast to Slay: Large Buffers with Cold Caches
 
 {pause}
-###  🪄 Some New Magic 
+##  🪄 Some New Magic 
 
 {style="display: flex; gap: 1em; position:relative"}
 > {#part1.a slip}
@@ -17,7 +17,7 @@
 >
 > {#part1.2 slip enter}
 > > # ⚡️ Partial Typing 
-> > {.block}
+> > {.block pause}
 > > > **Idea**: if you need the type of a top-level item line 10, Merlin does not need to type what comes after
 > > 
 > > {pause}
@@ -40,7 +40,7 @@
  -->
 
 {pause #ocaml5}
-### OCaml 5: 🫕 New Magical Components
+## OCaml 5: 🫕 New Magical Components
 
 <!-- ✨ 🪄 🧙‍♂️ 🧙‍♀️ 🧹 🧪 🦄
 
@@ -64,10 +64,10 @@
 > > *Possible images to include:*
 > > - *one for pthreads = spawn in for loop (CODE or IM)*
 > > - *one for domains = spawn should happen at the star of the world (CODE or IM)*
-> > - *another one for cancellation mechanism (IMAGE)*
-> > 
-> > 
-> > 
+> >
+> > ![Cancellation Mechanism](images/cancellation_mechanism2.jpg){width=300px focus} 
+> >
+>
 > {up=ocaml5}
 >
 > {#part2 slip enter}
@@ -107,76 +107,33 @@
 > {pause up-at-unpause=perf}
 
 
-<!-- {pause exec}
-```slip-script
-  let overlay = document.getElementById("emoticon-overlay");
-
-  if (!overlay) {
-    overlay = document.createElement("div");
-    overlay.id = "emoticon-overlay";
-    overlay.textContent = "😎"; // <-- you can change the emoticon here
-    document.body.appendChild(overlay);
-  }
-
-  let style =
-  "position: fixed;\
-  top: 0;\
-  left: 0;\
-  width: 500%;\
-  height: 500%;\
-  background: rgba(0, 0, 0, 0.4); /* semi-transparent backdrop */\
-  display: flex;\
-  justify-content: center;\
-  align-items: center;\
-  font-size: 10rem;\
-  color: white;\
-  z-index: 9999;\
-  visibility: hidden; /* start hidden */ ";
-
-  overlay.setAttribute("style", style);
-
-  overlay.style.visibility = "visible";
-
-  return {undo : () => { overlay.style.visibility = "hidden"; }}
-```
-
-{pause exec}
-```slip-script
-  let overlay = document.getElementById("emoticon-overlay");
-  overlay.style.visibility = "hidden";
-    return {undo : () => { overlay.style.visibility = "visible"; }}
-``` -->
-
-{pause up=merlin-multicore}
+<!--
+ {pause up=merlin-multicore}
 ## 🧙‍♀️ Merlin +  🐫 OCaml 5 = ❤️?{#merlin-multicore}
 
-
-
-<!-- 🐉 ➕ ❄️ (cold cache) ➡️ 😱 -->
 ```
-🧙‍♀️✨ Merlin ➕ 🌱 Parallelism ➕ 🍄 Effect Handlers
-
+🌱 Parallelism ➕ 🍄 Effect Handlers 
   🟰 ✨ Cancellation ➕ ⚡️ Partial Typing
     
 ```
+{pause }
+
+```
+🧙‍♀️✨ Merlin ➕ ✨ ➕ ⚡️ 🟰 🐉❌  (Beast slain!)
+```
+
 {pause}
-
-```
-
-✨ ➕ ⚡️ 🟰 🐉❌  (Beast slain!)
-```
-
 Seems like a great plan, right ?
 
 
-
 But ... {pause} 
-- Merlin a lot of mutable states
-- We can't change it too much (at least at start)
+- Merlin has a lot of mutable states
+- We can't change it too much
 
-{.block}
-With parallelism, isn't it the recipe for a **disaster** (i.e. data races) ?
+{.block pause}
+With parallelism, isn't it the recipe for a **disaster** (i.e. data races 💥) ?
 
+{pause}
 So why even bother ?
 
 {pause}
@@ -185,8 +142,78 @@ So why even bother ?
 
 {.block}
 And also, it seemed very fun to try (and it was)!
+ -->
 
 {pause up}
-## Let see the magic ✨
+## Brewing new spells 
 
-Include the graph of the flow of the code ()
+*Explain the new design with the diagram and some carousel*
+
+{pause up}
+## 🧙‍♀️ Merlin +  🐫 OCaml 5 = ❤️?{#merlin-multicore}
+
+{pause}
+And They lived happily ever after. 
+[**The End 🎬**]{focus}
+
+{unfocus}
+
+{pause}
+Except:
+- Merlin has a lot of mutable states
+- We can't change it too much
+
+{.block pause}
+With parallelism, isn't it the recipe for a **disaster** (i.e. data races 💥) ?
+
+
+
+blabla..
+
+{pause up}
+## Some metrics 
+
+{pause up}
+## Conclusion
+
+{pause .block}
+Is it working ?
+
+{pause} 
+Yes!
+
+{pause .block}
+Do we still have data races ?
+
+{pause}
+Yes!
+
+{pause .block}
+Is it an issue ?
+
+{Pause}
+ Maybe. 
+
+{#q3 pause .block}
+Could have we done thing differently ? 
+
+{pause}
+Yes, with ou without parallelism, there are many other ways to do it.
+
+{pause up="q3" .block}
+Would some designs be better ?
+
+{pause}
+Most likely. We are currently exploring!
+
+- No-parallelism design
+- guarantee data race free  
+
+{pause .block}
+What next ?
+
+
+{pause up}
+## What we've learned
+
+
