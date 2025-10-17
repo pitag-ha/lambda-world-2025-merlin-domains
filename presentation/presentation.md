@@ -131,11 +131,11 @@ Changes near the end have little impact as almost all previous typing results ca
 {pause}
 
 {#take-away}
-**Take-away** 🍕: When you modify a long file at the beginning of the file, Merlin is slow. (If you remember the demo, you saw this in action!)
+**Take-away from the typer cache** 🍕: When you modify a long file at the beginning of the file, Merlin is slow. (If you remember the demo, you saw this in action!)
 
 {pause up-at-unpause=take-away}
 
-**Remember** 👋: The typer is the main performance bottlenecks. The query analysis can also be quite slow. Partly parallelising the two things would help.
+**Take-away from performance analysis** 🍣: The typer is the main performance bottlenecks. The query analysis can also be quite slow. Partly parallelising the two things would help.
 
 {pause}
 
