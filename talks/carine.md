@@ -1,50 +1,4 @@
-{pause up #summary}
-## Summary
-
-{carousel change-page='~n:"all"'}
-----
-![Merlin's story](images/im1.png){width=1200px}
-
----
-![Merlin's story](images/im3.png){width=1200px}
-
----
-![Merlin's story](images/im4.png){width=1200px}
-----
-
-{pause up #spell children:slip}
-----
-
-{#cancel}
----
-# ✨ Cancellation Mechanism 
-
-{pause}
-Ability to cancel the current queries if a new one comes up.
-
-*(Add something like a picture ?)*
-
-{#partial}
----
-# ⚡️ Partial Typing 
-{.block pause}
-**Idea**: if you need the type of a top-level item line 10, Merrlin does not need to type what comes after
-
-{pause}
-True most of the time!
-{pause}
-```ocaml
-  let l = ref [] 
-  (* '_weak1 list ref *)
-  
-  l := 1 :: !l
-  (* int list ref *)
-```
- ----
-
-{pause up-at-unpause=spell}
-
-
+{include src=summary.md}
 
 {unfocus pause up #ocaml5}
 ## Brewing New Magics with OCaml 5
@@ -56,7 +10,6 @@ True most of the time!
 🌊 🔥 🌪️ 🌱 ⚡️ 🪨 ❄️ 💥 -->
 
 <!-- {pause style="text-align:center" up-at-unpause=ocaml5} -->
-
 <style>
 .svg-container svg {
   width: 80%;
@@ -64,16 +17,15 @@ True most of the time!
 }
 </style>
 
+
 {style="display: flex; gap: 1rem; position:relative"}
 > {slip}
 > > # 🌱 Shared Memory Parallelism
 > >
 > > {pause}
-> > Having multiple cores running in parallel (like `pthread`) {pause}
+> > {include src="cancellation_extra.md"}
 > >
-> > *(Include a picture of several core running in //)*
-> >
-> > {.block title="Domains"}
+> > {.block title="Domains" pause}
 > > ---
 > >
 > > A domain in OCaml is a **parallel execution unit** that has its own minor heap, and execution stack.
@@ -81,8 +33,18 @@ True most of the time!
 > >
 > > ---
 > >
+> > ### Cancellation mechanism
+> >
 > > {pause style="display: flex; gap: 1rem; position:relative"}
 > > > {slip}
+> > > >
+> > > > {carousel change-page='~n:"all"' }
+> > > > ----
+> > > >
+> > > > ---
+> > > > {.svg-container include src=images/detail_graph_to_temporal_small.svg}  
+> > > > 
+> > > > ---
 > > > > {.svg-container pause include src=images/cancellation2.svg} 
 > > > > {unreveal="step2-1 step3-1 step4-1"}
 > > > >
@@ -91,7 +53,9 @@ True most of the time!
 > > > > {pause reveal="step3-1"}
 > > > >
 > > > > {pause reveal="step4-1"}
-> > > >
+> > > > 
+> > > > ----
+> > >
 > > > {slip}
 > > > > {pause}
 > > > > {.svg-container include src=images/cancellation.svg} 
@@ -111,7 +75,6 @@ True most of the time!
 > > >
 > > ---
 >
-> {pause up-at-unpause=ocaml5}
 >
 > {#part2 slip enter}
 > > # 🍄 Effect Handlers
@@ -132,26 +95,7 @@ True most of the time!
 > > {carousel change-page='~n:"all"' }
 > > ----
 > >
-> > ```ocaml
-> > type style = Emo | Text
-> > type _ Effect.t += Love : style -> unit t | World : unit t
-> > 
-> > let foo () =
-> >   Format.printf "I ";
-> >   perform (Love Emo);
-> >   Format.printf " Lambda World!@."
-> > 
-> > (* Prints "I ♥ Lambda World!"*)
-> > let main () =
-> >   match foo () with
-> >   | () -> ()
-> >   | effect World, k -> Format.printf "World"; continue k ()
-> >   | effect Love style, k ->
-> >     let str = match style with | Emo -> "♥" | Text -> "love"
-> >     in
-> >     Format.printf "%s" str;
-> >     continue k ()
-> > ```
+> > {include src=partial_typing.md}
 > >
 > > ---
 > > {pause}
@@ -177,55 +121,8 @@ True most of the time!
 > {pause up-at-unpause=ocaml5}
 
 
-<!-- {include src=images/cancellation2.svg up focus} 
-
-{unreveal="listen1-1 waitinglisten2-1"}
-
-{pause reveal="listen1-1 listen2-1"}
-
-{unfocus} -->
-
-<!--
- {pause up=merlin-multicore}
-## 🧙‍♀️ Merlin +  🐫 OCaml 5 = ❤️?{#merlin-multicore}
-
-```
-🌱 Parallelism ➕ 🍄 Effect Handlers 
-  🟰 ✨ Cancellation ➕ ⚡️ Partial Typing
-    
-```
-{pause }
-
-```
-🧙‍♀️✨ Merlin ➕ ✨ ➕ ⚡️ 🟰 🐉❌  (Beast slain!)
-```
-
-{pause}
-Seems like a great plan, right ?
-
-
-But ... {pause} 
-- Merlin has a lot of mutable states
-- We can't change it too much
-
-{.block pause}
-With parallelism, isn't it the recipe for a **disaster** (i.e. data races 💥) ?
-
-{pause}
-So why even bother ?
-
-{pause}
-- OCaml 5 memory model is great! {pause}
-- Merlin is a non-critical system. {pause}
-
-{.block}
-And also, it seemed very fun to try (and it was)!
- -->
-
 {pause up}
-## Brewing new spells 
-
-*Explain the final design with the diagram and some carousel*
+## Everything together
 
 {pause }
 {.svg-container include src=images/complete_graph.svg} 
@@ -244,22 +141,49 @@ And also, it seemed very fun to try (and it was)!
 ## 🧙‍♀️ Merlin +  🐫 OCaml 5 = ❤️?{#merlin-multicore}
 
 {pause}
-And They lived happily ever after. 
+And they lived happily ever after. 
 [**The End 👑**]{focus}
 
 {unfocus}
 
 {pause}
-Except:
-- Merlin has a lot of mutable states
-- We can't change it too much
+**Plot twist:**
+- Merlin has a lot of mutable states 
+  - 77 top-level definition of mutable references,
+  - 4 hashtables.
+- We can't change it too much.
 
 {.block pause}
-With parallelism, isn't it the recipe for a **disaster** (i.e. data races 💥) ?
+With parallelism, isn't this the recipe for a **disaster** (i.e. data races 💥) ?
 
-blabla 
+{pause}
+So why even bother ?
 
-*graph with mutex*
+{pause}
+- OCaml 5 memory model is great! {pause}
+- Merlin is a non-critical system. {pause} 
+
+{.block}
+And also, it seemed very fun to try (and it was)!
+
+{pause up}
+{carousel change-page='~n:"1-2 -1 +2"' }
+-----
+
+----
+## Previous Sequence Diagram
+{.svg-container include src=images/complete_graph.svg} 
+
+----
+## With some multicore safety one
+{.svg-container include src=images/complete_graph_with_mutex.svg} 
+
+----
+## Another issue
+{.svg-container include src=images/complete_graph_last.svg} 
+
+
+-----
 
 {pause up}
 ## Some metrics 
@@ -285,8 +209,9 @@ Is it an issue ?
 {Pause}
  Maybe. 
 
-{#q3 pause .block}
+{#q3 pause up .block}
 Could we avoid data races at all? 
+
 Yes, but:
 - would limit parallelism
 
@@ -296,24 +221,33 @@ OR
 
 We are also exploring using a static way to enforce data-race freedom with modes thanks to a branch of OCaml called OxCaml.
 
-{pause}
-Yes, with ou without parallelism, there are many other ways to do it.
-
 {pause up="q3" .block}
 Would some design be better ?
 
 {pause}
 Most likely. We are currently exploring!
 
-- single-core design
-- guarantee data race free  
+- (short term) single-core design
+- (short term) guarantee data race freedom
+- (long term) other way of sharing the work between multiple domains
+
+
+{pause up .block}
+What we've learned ?
+
+- Merlin can be made parallel! 🥳 
+- Making it very efficient, however will require way more refactoring.
+
 
 {pause .block}
 What next ?
 
-TODO
+Keep improving and trying to understand what we currently have:
+- better cancellation mechanism
+- a single-core design to study the improvement brought by parallelism alone
 
-{pause up}
-## What we've learned
+Explore other designs:
+- data-race free design with OXcaml
+- other way of sharing the work between multiple domains
 
 
