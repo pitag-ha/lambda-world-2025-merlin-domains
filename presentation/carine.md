@@ -12,6 +12,13 @@
 </style>
 
 
+<style>
+.svg-container-cfg svg {
+  width: 40%;
+  height: auto;
+}
+</style>
+
 {style="display: flex; gap: 1rem; position:relative"}
 > {slip}
 > > # 🌱 Shared Memory Parallelism
@@ -30,11 +37,15 @@
 > > {pause}
 > > ### Cancellation mechanism
 > >
+> >
 > > {style="display: flex; gap: 1rem; position:relative"}
 > > > {slip}
 > > > >
 > > > > {carousel change-page='~n:"all"' }
 > > > > ----
+> > > >
+> > > > {pause}
+> > > > {.svg-container-cfg include src=merlin_cfd_with_typer.svg}
 > > > >
 > > > > ---
 > > > > {.svg-container-carine include src=images/detail_graph_to_temporal_small.svg}  
