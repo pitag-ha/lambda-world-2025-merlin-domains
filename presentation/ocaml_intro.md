@@ -1,10 +1,8 @@
-{carousel #camel-carousel0}
+{carousel #camel-carousel0 style="margin-top:-50px"}
 ------
 
-**Language**
-
 {style="display: flex; gap: 5rem; position:relative"}
->
+> > **Language**
 > > - Functional-first but multi-paradigm (supports imperative and object-oriented styles)
 > > - Static type system with Hindley–Milner type inference
 > > - Advanced features — powerful module system, GADTs, polymorphic variants

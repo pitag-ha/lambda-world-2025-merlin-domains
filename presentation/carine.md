@@ -110,7 +110,7 @@
 > >
 > > {pause up-at-unpause=my-carousel}
 > > {.svg-container-carine include src=images/partial_typing.svg } 
-> > {unreveal="step2-3 step3-3 step4-3 step4b-3 step5-3 step6-3"}
+> > {unreveal="step2-3 step3-3 step4-3 step4a-3 step4b-3 step5-3 step6-3"}
 > > 
 > > {change-page=my-carousel}
 > >
@@ -122,6 +122,8 @@
 > >
 > > {reveal="step4-3"}
 > >
+> > {reveal="step4a-3"}
+> > 
 > > {reveal="step4b-3"}
 > > 
 > > {unfocus}
@@ -190,19 +192,19 @@ So why even bother ?
 And also, it seemed very fun to try (and it was)!
 
 {pause up}
-{carousel change-page='~n:"1-2 -1 +2"' }
+{carousel change-page='~n:"all"' }
 -----
 
 ----
-## Previous Sequence Diagram
+## Sequence Diagram with Data Races
 {.svg-container-carine include src=images/complete_graph.svg} 
 
 ----
-## With some multicore safety one
-{.svg-container-carine include src=images/complete_graph_with_mutex.svg} 
+## With mutexes
+{.svg-container-carine include src=images/complete_graph_with_mutex2.svg} 
 
 ----
-## Another issue
+## Something else to improve
 {.svg-container-carine include src=images/complete_graph_last.svg} 
 
 
