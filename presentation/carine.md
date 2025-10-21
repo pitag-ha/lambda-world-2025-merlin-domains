@@ -46,9 +46,11 @@
 > > > >
 > > > > ---
 > > > >
+> > > > ## Control Flow Graph
 > > > > {.svg-container-cfg include src=merlin_cfd_with_typer.svg}
 > > > >
 > > > > ---
+> > > > ## Sequence Diagram
 > > > > {.svg-container-carine include src=images/detail_graph_to_temporal_small.svg}  
 > > > > 
 > > > > ---
@@ -97,16 +99,21 @@
 > >
 > > ---
 > >
-> > {pause up}
+> > {pause}
 > >
 > > {carousel #my-carousel}
 > > ----
 > >
+> > {include src=effect_example.md}
 > >
-> > {pause}
+> > ---
+> >
+> > {pause up-at-unpause=my-carousel}
 > > {.svg-container-carine include src=images/partial_typing.svg } 
 > > {unreveal="step2-3 step3-3 step4-3 step4b-3 step5-3 step6-3"}
 > > 
+> > {change-page=my-carousel}
+> >
 > > {reveal="step2-3"}
 > >
 > > {focus="focus-rect"}

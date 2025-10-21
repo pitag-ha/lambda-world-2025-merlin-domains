@@ -1,6 +1,6 @@
 {style=font-size:0.95em}
 ```ocaml
-type _ Effect.t += PartialResult : Typetree.item list -> unit t
+type _ Effect.t += EarlyReturn : Typetree.item list -> unit t
 
 let rec typing_loop is_right_pos env typed_items parsetree =
   match parsetree with
@@ -10,7 +10,7 @@ let rec typing_loop is_right_pos env typed_items parsetree =
     let ntyped_items = typed_item :: typed_items in
 
     if is_right_pos item then (
-      perform (PartialResult ntyped_items);
+      Effect.perform (EarlyReturn ntyped_items);
       typing_loop is_right_pos new_env ntyped_items nparsetree)
     else typing_loop is_right_pos new_env ntyped_items nparsetree
 
@@ -21,12 +21,12 @@ let make_pipeline config pos =
   let typer_result =
     match typing_loop pos [] [] exp_parsetree with
     | typed_items -> typed_items
-    | effect PartialResult typed_items, k ->
+    | effect EarlyReturn typed_items, k ->
       let result =
         { file; parsetree = exp_parsetree; typer_result = typed_items }
       in
       share result;
-      continue k ()
+      Effect.continue k ()
   in
   { file; parsetree = exp_parsetree; typer_result }
 ```
