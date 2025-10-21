@@ -15,11 +15,14 @@ dimension: 16:9
 
 #### Content
 
-1. OCaml 🐪
-2. OCaml's language server Merlin 🧙‍♀️
+1. OCaml :dromedary_camel:
+2. OCaml's language server Merlin :female_mage:
    - demo
    - Merlin's control flow and performance
-3.
+3. Leveraging OCaml 5 for performance
+   - New mechanisms to improve performance
+   - Implementations with OCaml 5
+4. Bumps in the Road
 
 {pause}
 
@@ -53,9 +56,13 @@ Live demo!
 
 {pause}
 
-You've just seen OCamlLSP live. OCamlLSP is one of the two frontends of OCaml's language server backend Merlin ✨✨ . Let's talk about Merlin:
+☝️ You've just seen OCamlLSP live.
+
+✨✨ Merlin is the backend of OCamlLSP.
 
 {pause unreveal=AST}
+
+🌳 And this is a tree in Cádiz:
 
 ![](arbol_magico_cadiz.png){ style="width:400px; vertical-align:middle; margin-right:2em;" }
 <span id="AST" style="vertical-align:middle;"> ----> Let's talk about ASTs. </span>
@@ -71,7 +78,7 @@ You've just seen OCamlLSP live. OCamlLSP is one of the two frontends of OCaml's 
 
 An AST is a representation of the program in the form of a tree.
 
-In OCaml, a statically typed language, there are two ASTs:
+In OCaml, a statically typed language, there are two ASTs, both are made up of a list of **_top-level items_**:
 
 - **Parsetree**: the raw syntax tree from parsing source code.
 - **Typedtree**: a version of the syntax tree where the compiler has annotated every expression with its inferred type.
@@ -116,38 +123,21 @@ The compiler frontend builds up these different representations of your program 
 {pause up-at-unpause=cfd}
 
 {pause up}
+{#cache-section}
 
 #### Cache mechanisms in Merlin
 
 There are two cache mechanisms:
 
-1. File caches
+<!-- {pause style="text-align:center"} -->
 
-   Build artifacts are stored in memory once read.
+{style="display: flex; position:relative"}
+> {#part1 slip include src="file_cache.md"}
+>
+> {#part3 include src=typer_cache.md slip enter}
+>
 
-{pause up-at-unpause=typer_cache}
-
-{#typer_cache} 2. Typer cache
-
-{pause}
-
-TODO: Make this nicer!!
-
-![](typer.svg)
-
-{pause}
-
-{#simplification}
-That was overly simplified.
-
-Actually, the next item only gets typed if it hasn't changed since the last time Merlin ran. If not, it gets drawn from cache
-
-{pause}
-
-So: When you modify code near the top of a file, Merlin needs to retype most of the file, so queries are slower.
-Changes near the end have little impact as almost all previous typing results can be reused.
-
-{pause}
+{pause up-at-unpause=cache-section}
 
 {#take-away}
 **Take-away from the typer cache** 🍕: When you modify a long file at the beginning of the file, Merlin can be very slow. If Merlin could speed up queries towards the beginning of a file, that'd be magic!✨
@@ -160,17 +150,18 @@ Changes near the end have little impact as almost all previous typing results ca
 
 **Also** ✨➕✨: Currently, Merlin finishes the whole process for one query before starting the next. If there were a way to cancel in-progress work when new queries arrive, queries could respond even faster. LSP does skip queued queries. If Merlin could also cancel ongoing query processing, that’d be magic!
 
-
-
 {include src=carine.md}
 
+{pause up}
+
+## Some metrics
 
 {pause up}
-## Some metrics 
 
-{pause up}
 #### Metrics
 
 {pause up}
+
 ## Conclusion
+
 {include src=conclusion.md}
