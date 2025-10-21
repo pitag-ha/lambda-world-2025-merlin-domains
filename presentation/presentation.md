@@ -178,10 +178,13 @@ Changes near the end have little impact as almost all previous typing results ca
 
 **Also** ✨➕✨: Currently, Merlin finishes the whole process for one query before starting the next. If there were a way to cancel in-progress work when new queries arrive, queries could respond even faster. LSP does skip queued queries. If Merlin could also cancel ongoing query processing, that’d be magic!
 
+
+
+{include src=carine.md}
+
 {pause up}
-
-#### Carine's sections
-
-{pause up}
-
 #### Metrics
+
+{pause up}
+## Conclusion
+{include src=conclusion.md}
