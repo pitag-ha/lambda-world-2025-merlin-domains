@@ -15,7 +15,15 @@ dimension: 16:9
 
 #### Content
 
-blabla
+1. OCaml 🐪
+2. OCaml's language server Merlin 🧙‍♀️
+   - demo
+   - Merlin's control flow and performance
+3.
+
+{pause}
+
+**Heads-up**: We're presenting an experiment. You'll see in the metrics section that there _are_ clear improvements, but not all are related to multicore and also, there are a few performance unknowns still.
 
 {pause up-at-unpause=questions}
 
