@@ -42,6 +42,8 @@ blabla
 - Advanced features — powerful module system, GADTs, polymorphic variants
 - Multicore support and effect handlers
 
+{pause}
+
 **Platform and Ecosystem**
 
 - Fast, native code generation — targets x86, ARM, RISC-V, etc.
@@ -50,6 +52,8 @@ blabla
 - Opam repository — small but mature package ecosystem
 - Notable industrial users — Jane Street, Meta, Microsoft, Ahrefs, Citrix, Tezos, Bloomberg, Docker
 - MirageOS — library operating system for building secure, minimal unikernels (cloud and IoT deployments)
+
+{pause}
 
 **Applications and Strengths**
 
