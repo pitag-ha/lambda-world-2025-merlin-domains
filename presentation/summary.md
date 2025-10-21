@@ -1,6 +1,7 @@
 {pause up #summary}
 ## Summary
 
+{pause}
 
 {carousel change-page='~n:"all"'}
 ----
@@ -19,7 +20,7 @@
 
 <!-- {pause unreveal #cancel_text} -->
 {pause}
-> Ability to cancel the current queries if a new one comes up.
+> Ability to cancel the current query if a new one comes up.
 > 
 
 
