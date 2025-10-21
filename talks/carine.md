@@ -33,9 +33,10 @@
 > >
 > > ---
 > >
+> > {pause}
 > > ### Cancellation mechanism
 > >
-> > {pause style="display: flex; gap: 1rem; position:relative"}
+> > {style="display: flex; gap: 1rem; position:relative"}
 > > > {slip}
 > > > >
 > > > > {carousel change-page='~n:"all"' }
@@ -48,11 +49,11 @@
 > > > > {.svg-container pause include src=images/cancellation2.svg} 
 > > > > {unreveal="step2-1 step3-1 step4-1"}
 > > > >
-> > > > {pause reveal="step2-1"}
+> > > > {reveal="step2-1"}
 > > > >
-> > > > {pause reveal="step3-1"}
+> > > > {reveal="step3-1"}
 > > > >
-> > > > {pause reveal="step4-1"}
+> > > > {reveal="step4-1"}
 > > > > 
 > > > > ----
 > > >
@@ -61,15 +62,15 @@
 > > > > {.svg-container include src=images/cancellation.svg} 
 > > > > {unreveal="step2-2 step3-2 step4-2 step5-2 step6-2"}
 > > > >
-> > > > {pause reveal="step2-2"}
+> > > > {reveal="step2-2"}
 > > > >
-> > > > {pause reveal="step3-2"}
+> > > > {reveal="step3-2"}
 > > > >
-> > > > {pause reveal="step4-2"}
+> > > > {reveal="step4-2"}
 > > > >
-> > > > {pause reveal="step5-2"}
+> > > > {reveal="step5-2"}
 > > > >
-> > > > {pause reveal="step6-2"}
+> > > > {reveal="step6-2"}
 > > > >
 > > > > 
 > > >
@@ -92,35 +93,41 @@
 > >
 > > {pause up}
 > >
-> > {carousel change-page='~n:"all"' }
+> > {carousel #my-carousel}
 > > ----
 > >
-> > {include src=partial_typing.md}
 > >
-> > ---
 > > {pause}
 > > {.svg-container include src=images/partial_typing.svg } 
-> > {unreveal="step2-3 step3-3 step4-3 step5-3 step6-3"}
+> > {unreveal="step2-3 step3-3 step4-3 step4b-3 step5-3 step6-3"}
 > > 
-> > {pause reveal="step2-3"}
+> > {reveal="step2-3"}
 > >
-> > {focus="diagram_pipeline"}
+> > {focus="focus-rect"}
 > >
-> > {pause reveal="step3-3"}
+> > {reveal="step3-3"}
 > >
+> > {reveal="step4-3"}
+> >
+> > {reveal="step4b-3"}
+> > 
 > > {unfocus}
 > >
-> > {pause reveal="step4-3"}
-> > 
-> > {pause reveal="step5-3"}
+> > {reveal="step5-3"}
 > >
-> > {pause reveal="step6-3"}
+> > {reveal="step6-3"}
+> >
+> > {change-page=my-carousel}
+> >
+> > ---
+> >
+> > {include src=partial_typing.md}
 > >
 > > ----
 > > 
 > {pause up-at-unpause=ocaml5}
 
-
+<!-- rect26279-7-2-7-1-0-6 -->
 {pause up}
 ## Everything together
 
@@ -128,13 +135,13 @@
 {.svg-container include src=images/complete_graph.svg} 
 {unreveal="step2-4 step3-4 step4-4 step5-4"}
 
-{pause reveal="step2-4"}
+{reveal="step2-4"}
 
-{pause reveal="step3-4"}
+{reveal="step3-4"}
 
-{pause reveal="step4-4"}
+{reveal="step4-4"}
 
-{pause reveal="step5-4"}
+{reveal="step5-4"}
 
 
 {pause up}
@@ -150,8 +157,10 @@ And they lived happily ever after.
 **Plot twist:**
 - Merlin has a lot of mutable states 
   - 77 top-level definition of mutable references,
-  - 4 hashtables.
-- We can't change it too much.
+  - 4 hashtables defined at top-level.
+- The internal typer comes from OCaml: 
+  - we don't want to change
+  - also highly mutable
 
 {.block pause}
 With parallelism, isn't this the recipe for a **disaster** (i.e. data races 💥) ?
@@ -231,13 +240,12 @@ Most likely. We are currently exploring!
 - (short term) guarantee data race freedom
 - (long term) other way of sharing the work between multiple domains
 
-
 {pause up .block}
 What we've learned ?
 
 - Merlin can be made parallel! 🥳 
-- Making it very efficient, however will require way more refactoring.
-
+- Making it more efficient, more parallel, will require way more refactoring.
+- More insight on performance bottlenecks 
 
 {pause .block}
 What next ?
