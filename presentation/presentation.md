@@ -19,17 +19,10 @@ dimension: 16:9
 2. OCaml's language server Merlin :female_mage:
    - demo
    - Merlin's control flow and performance
-<<<<<<< HEAD
-3. Leveraging OCaml 5 for performance
-   - New mechanisms to improve performance
-   - Implementations with OCaml 5
-4. Bumps in the Road
-=======
 3. Leveraging OCaml 5 for performance 🔥
    - New mechanisms to improve performance
    - Implementations with OCaml 5
 4. Bumps in the road 🚧
->>>>>>> 61b00bb (better examples)
 
 {pause}
 
