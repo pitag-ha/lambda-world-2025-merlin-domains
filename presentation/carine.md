@@ -44,7 +44,8 @@
 > > > > {carousel change-page='~n:"all"' }
 > > > > ----
 > > > >
-> > > > {pause}
+> > > > ---
+> > > >
 > > > > {.svg-container-cfg include src=merlin_cfd_with_typer.svg}
 > > > >
 > > > > ---
