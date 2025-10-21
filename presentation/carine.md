@@ -3,16 +3,10 @@
 {unfocus pause up #ocaml5}
 ## Brewing New Magics with OCaml 5
 
-<!-- 🫕 New Magical Components -->
-
-<!-- ✨ 🪄 🧙‍♂️ 🧙‍♀️ 🧹 🧪 🦄
-
-🌊 🔥 🌪️ 🌱 ⚡️ 🪨 ❄️ 💥 -->
-
 <!-- {pause style="text-align:center" up-at-unpause=ocaml5} -->
 <style>
 .svg-container-carine svg {
-  width: 80%;
+  width: 60%;
   height: auto;
 }
 </style>
@@ -115,7 +109,7 @@
 > >
 > > {reveal="step5-3"}
 > >
-> > {reveal="step6-3"}
+> > {pause reveal="step6-3"}
 > >
 > > {change-page=my-carousel}
 > >

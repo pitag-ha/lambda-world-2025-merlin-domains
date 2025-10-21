@@ -95,7 +95,7 @@
 
 <style>
 .svg-container-small svg {
-  width: 120%;
+  width: 100%;
   height: auto;
 }
 </style>
