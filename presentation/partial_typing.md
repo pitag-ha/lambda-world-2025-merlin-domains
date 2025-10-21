@@ -1,4 +1,4 @@
-
+{style=font-size:0.95em}
 ```ocaml
 type _ Effect.t += PartialResult : Typetree.item list -> unit t
 

@@ -182,6 +182,10 @@ Changes near the end have little impact as almost all previous typing results ca
 
 {include src=carine.md}
 
+
+{pause up}
+## Some metrics 
+
 {pause up}
 #### Metrics
 

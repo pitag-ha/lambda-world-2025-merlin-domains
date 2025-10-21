@@ -119,8 +119,9 @@
 > >
 > > ----
 > > 
-
-{pause up-at-unpause=ocaml5}
+>
+> 
+> {up-at-unpause=ocaml5}
 
 {pause up}
 ## Everything together
@@ -188,6 +189,5 @@ And also, it seemed very fun to try (and it was)!
 
 -----
 
-{pause up}
-## Some metrics 
+
 
