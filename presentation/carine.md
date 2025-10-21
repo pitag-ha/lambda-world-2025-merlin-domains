@@ -11,7 +11,7 @@
 
 <!-- {pause style="text-align:center" up-at-unpause=ocaml5} -->
 <style>
-.svg-container svg {
+.svg-container-carine svg {
   width: 80%;
   height: auto;
 }
@@ -43,10 +43,10 @@
 > > > > ----
 > > > >
 > > > > ---
-> > > > {.svg-container include src=images/detail_graph_to_temporal_small.svg}  
+> > > > {.svg-container-carine include src=images/detail_graph_to_temporal_small.svg}  
 > > > > 
 > > > > ---
-> > > > {.svg-container pause include src=images/cancellation2.svg} 
+> > > > {.svg-container-carine pause include src=images/cancellation2.svg} 
 > > > > {unreveal="step2-1 step3-1 step4-1"}
 > > > >
 > > > > {reveal="step2-1"}
@@ -59,7 +59,7 @@
 > > >
 > > > {slip}
 > > > > {pause}
-> > > > {.svg-container include src=images/cancellation.svg} 
+> > > > {.svg-container-carine include src=images/cancellation.svg} 
 > > > > {unreveal="step2-2 step3-2 step4-2 step5-2 step6-2"}
 > > > >
 > > > > {reveal="step2-2"}
@@ -98,7 +98,7 @@
 > >
 > >
 > > {pause}
-> > {.svg-container include src=images/partial_typing.svg } 
+> > {.svg-container-carine include src=images/partial_typing.svg } 
 > > {unreveal="step2-3 step3-3 step4-3 step4b-3 step5-3 step6-3"}
 > > 
 > > {reveal="step2-3"}
@@ -125,14 +125,14 @@
 > >
 > > ----
 > > 
-> {pause up-at-unpause=ocaml5}
 
-<!-- rect26279-7-2-7-1-0-6 -->
+{pause up-at-unpause=ocaml5}
+
 {pause up}
 ## Everything together
 
 {pause }
-{.svg-container include src=images/complete_graph.svg} 
+{.svg-container-carine include src=images/complete_graph.svg} 
 {unreveal="step2-4 step3-4 step4-4 step5-4"}
 
 {reveal="step2-4"}
@@ -181,81 +181,19 @@ And also, it seemed very fun to try (and it was)!
 
 ----
 ## Previous Sequence Diagram
-{.svg-container include src=images/complete_graph.svg} 
+{.svg-container-carine include src=images/complete_graph.svg} 
 
 ----
 ## With some multicore safety one
-{.svg-container include src=images/complete_graph_with_mutex.svg} 
+{.svg-container-carine include src=images/complete_graph_with_mutex.svg} 
 
 ----
 ## Another issue
-{.svg-container include src=images/complete_graph_last.svg} 
+{.svg-container-carine include src=images/complete_graph_last.svg} 
 
 
 -----
 
 {pause up}
 ## Some metrics 
-
-{pause up}
-## Conclusion
-
-{pause .block}
-Is it working ?
-
-{pause} 
-Yes!
-
-{pause .block}
-Do we still have data races ?
-
-{pause}
-Yes!
-
-{pause .block}
-Is it an issue ?
-
-{Pause}
- Maybe. 
-
-{#q3 pause up .block}
-Could we avoid data races at all? 
-
-Yes, but:
-- would limit parallelism
-
-OR
-
-- would require changing the internal typer
-
-We are also exploring using a static way to enforce data-race freedom with modes thanks to a branch of OCaml called OxCaml.
-
-{pause up="q3" .block}
-Would some design be better ?
-
-{pause}
-Most likely. We are currently exploring!
-
-- (short term) single-core design
-- (short term) guarantee data race freedom
-- (long term) other way of sharing the work between multiple domains
-
-{pause up .block}
-What we've learned ?
-
-- Merlin can be made parallel! 🥳 
-- Making it more efficient, more parallel, will require way more refactoring.
-- More insight on performance bottlenecks 
-
-{pause .block}
-What next ?
-
-Keep improving and trying to understand what we currently have:
-- better cancellation mechanism
-- a single-core design to study the improvement brought by parallelism alone
-
-Explore other designs:
-- data-race free design with OXcaml
-- other way of sharing the work between multiple domains
-
 

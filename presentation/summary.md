@@ -90,7 +90,7 @@
 > > ----
 
 
-{pause up-at-unpause=spell}
+{pause up-at-unpause=cancel}
 
 
 <style>
