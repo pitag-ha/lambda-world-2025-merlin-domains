@@ -13,11 +13,11 @@ dimension: 16:9
 
 <br>
 
-#### Content
+## Content
 
-1. OCaml :dromedary_camel:
-2. OCaml's language server Merlin :female_mage:
-   - demo
+1. OCaml 🐪
+2. OCaml's language server Merlin 🧙‍♀️
+   - Demo
    - Merlin's control flow and performance
 3. Leveraging OCaml 5 for performance 🔥
    - New mechanisms to improve performance
@@ -26,11 +26,11 @@ dimension: 16:9
 
 {pause}
 
-**Heads-up**: We're presenting an experiment. You'll see in the metrics section that there _are_ clear improvements, but not all are related to multicore and also, there are a few performance unknowns still.
+**Heads-up**: We're presenting an experiment. You'll see in the Bumps in the road 🚧 section that there _are_ clear improvements, but not all are related to multicore and also, there are a few performance unknowns still.
 
 {pause up-at-unpause=questions}
 
-#### A few questions {#questions}
+## A few questions {#questions}
 
 {pause}
 
@@ -44,13 +44,13 @@ dimension: 16:9
 
 {pause up-at-unpause=ocaml}
 
-#### OCaml 🐪 {#ocaml}
+## OCaml 🐪 {#ocaml}
 
 {include src=ocaml_intro.md}
 
 {pause up-at-unpause=merlin}
 
-#### OCaml's language server Merlin 🧙‍♀️ {#merlin}
+## OCaml's language server Merlin 🧙‍♀️ {#merlin}
 
 Live demo!
 
@@ -78,10 +78,12 @@ Live demo!
 
 An AST is a representation of the program in the form of a tree.
 
-In OCaml, a statically typed language, there are two ASTs, both are made up of a list of **_top-level items_**:
+In OCaml, a statically typed language, there are two ASTs:
 
 - **Parsetree**: the raw syntax tree from parsing source code.
 - **Typedtree**: a version of the syntax tree where the compiler has annotated every expression with its inferred type.
+
+Both are composed of a list of **_top-level items_**, such as value definitions, types and modules.
 
 {pause}
 
@@ -92,6 +94,7 @@ The compiler frontend builds up these different representations of your program 
 ![](pipeline_with_typer.svg)
 
 {pause up}
+{unreveal=g6}
 {#cfd}
 {.svg-container include src=merlin_cfd_with_typer.svg #cfd}
 
@@ -110,21 +113,37 @@ The compiler frontend builds up these different representations of your program 
 
 #### Performance data (in milliseconds)
 
-![](perf_lsp_types_2.png){ style="height:8em;" }
+{.block}
+{style="display:flex; gap:5rem; position:relative"}
+> > ![](perf_lsp_types_2.png){ style="height:8em;" }
+>
+> > Ok, we knew that editor support on this file is slow, because it's long.
+> >
+> > **Main bottleneck**: typer
 
-&nbsp; <!-- small spacer -->
 
-![](perf_lsp_2.png){ style="height:8em;" }
+<!-- {.block}
+{style="display:flex; gap:5rem; position:relative"}
+> > ![](perf_lsp_2.png){ style="height:8em;" }
+>
+> > On the whole code base it's quite ok. -->
 
-&nbsp; <!-- small spacer -->
+{.block}
+{style="display:flex; gap:5rem; position:relative"}
+> > ![](perf_js_2.png){ style="height:8em;" }
+>
+> > Fully cold cache is not a real-world scenario. We only use it for analysis.
+> >
+> > **Main bottleneck**: typer
+> >
+> > **Secondary bottleneck**: query analysis
 
-![](perf_js_2.png){ style="height:8em;" }
-
+{reveal=g6}
 {pause up-at-unpause=cfd}
 
 {pause up}
-{#cache-section}
 
+{#cache-section}
 #### Cache mechanisms in Merlin
 
 There are two cache mechanisms:
@@ -137,18 +156,26 @@ There are two cache mechanisms:
 > {#part3 include src=typer_cache.md slip enter}
 >
 
-{pause up-at-unpause=cache-section}
-
-{#take-away}
-**Take-away from the typer cache** 🍕: When you modify a long file at the beginning of the file, Merlin can be very slow. If Merlin could speed up queries towards the beginning of a file, that'd be magic!✨
-
-{pause up-at-unpause=take-away}
-
-**Take-away from performance analysis** 🍣: The typer is the main performance bottlenecks. The query analysis can also be quite slow. Partly parallelising the two things would help.
-
 {pause}
 
-**Also** ✨➕✨: Currently, Merlin finishes the whole process for one query before starting the next. If there were a way to cancel in-progress work when new queries arrive, queries could respond even faster. LSP does skip queued queries. If Merlin could also cancel ongoing query processing, that’d be magic!
+#### Take-away from the typer cache
+
+When you modify a long file at the beginning of the file, Merlin can be very slow. **Speeding up queries towards the beginning of a file, that'd be magic!** ✨
+
+{pause up}
+
+## Take-aways 🍕🍣
+
+#### Take-away from the typer cache
+
+When you modify a long file at the beginning of the file, Merlin can be very slow. **Speeding up queries towards the beginning of a file, that'd be magic!** ✨
+
+#### Take-away from performance analysis
+The typer is the main performance bottleneck. The query analysis can also be a bottleneck. **Partly parallelising the typing and the query analysis would be magic!** ✨
+
+#### Take-away from the demo
+VSCode (and other editors) send cancellation requests to OCamlLSP that are currently mostly ignored. **If cancellation requests could be handled, that’d be magic!** ✨
+
 
 {include src=carine.md}
 
@@ -158,9 +185,40 @@ There are two cache mechanisms:
 
 {pause up}
 
-#### Metrics
+{style="display:flex; gap:5rem; position:relative; margin-top:1px; margin-bottom:1px"}
+> > ![](compa_metrics_lsp_mixed.png){ style="height:8em;" }
+>
+> > In P95: 12% faster
+> >
+> > In P25: 7% slower 😲
+
+{pause}
+
+<hr/>
+
+{style="display:flex; gap:5rem; position:relative"}
+> > ![](compa_metrics_irmin_mixed.png){ style="height:8em;" }
+>
+> > In P95: 20,5% faster
+> >
+> > In P25: 0,5% slower
+
+{pause}
+
+<hr/>
+
+{style="display:flex; gap:5rem; position:relative"}
+> > ![](compa_metrics_lsp_types_cold.png){ style="height:8em;" }
+>
+> > P95: 8% slower 😲
+> >
+> > P25: 41% faster 🥳
+
+
+{unfocus}
 
 {pause up}
+
 
 ## Conclusion
 
