@@ -15,18 +15,18 @@ dimension: 16:9
 
 ## Content
 
-1. OCaml 🐪
+1. ~~OCaml 🐪~~
 2. OCaml's language server Merlin 🧙‍♀️
    - Demo
    - Merlin's control flow and performance
 3. Leveraging OCaml 5 for performance 🔥
    - New mechanisms to improve performance
    - Implementations with OCaml 5
-4. Bumps in the road 🚧
+4. Performance improvements and bumps in the road 🚧
 
-{pause}
+<!-- {pause} -->
 
-**Heads-up**: We're presenting an experiment. You'll see in the Bumps in the road 🚧 section that there _are_ clear improvements, but not all are related to multicore and also, there are a few performance unknowns still.
+<!-- **Heads-up**: We're presenting an experiment. You'll see in Section 4. that there _are_ clear performance improvements, but also still things to improve and understand. -->
 
 {pause up-at-unpause=questions}
 
@@ -115,7 +115,7 @@ The compiler frontend builds up these different representations of your program 
 
 {.block}
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](perf_lsp_types_2.png){ style="height:8em;" }
+> > ![](perf_lsp_types_3.png){ style="height:8em;" }
 >
 > > Ok, we knew that editor support on this file is slow, because it's long.
 > >
@@ -128,15 +128,18 @@ The compiler frontend builds up these different representations of your program 
 >
 > > On the whole code base it's quite ok. -->
 
-{.block}
+
+{.block #perf_js}
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](perf_js_2.png){ style="height:8em;" }
+> > ![](perf_js_3.png){ style="height:8em;" }
 >
-> > Fully cold cache is not a real-world scenario. We only use it for analysis.
+> > Note: Fully cold cache is not really a real-world scenario. We only use it for analysis.
 > >
 > > **Main bottleneck**: typer
 > >
 > > **Secondary bottleneck**: query analysis
+
+{pause up-at-unpause=perf_js}
 
 {reveal=g6}
 {pause up-at-unpause=cfd}
@@ -148,19 +151,18 @@ The compiler frontend builds up these different representations of your program 
 
 There are two cache mechanisms:
 
-<!-- {pause style="text-align:center"} -->
-
+{pause style="text-align:center"}
 {style="display: flex; position:relative"}
 > {#part1 slip include src="file_cache.md"}
 >
 > {#part3 include src=typer_cache.md slip enter}
 >
 
-{pause}
+{pause up-at-unpause=cache-section}
 
 #### Take-away from the typer cache
 
-When you modify a long file at the beginning of the file, Merlin can be very slow. **Speeding up queries towards the beginning of a file, that'd be magic!** ✨
+When you modify a long file at the beginning of the file, Merlin can be very slow. <span style="color:green">**Speeding up queries towards the beginning of a file would be be magic!**</span> ✨
 
 {pause up}
 
@@ -168,13 +170,13 @@ When you modify a long file at the beginning of the file, Merlin can be very slo
 
 #### Take-away from the typer cache
 
-When you modify a long file at the beginning of the file, Merlin can be very slow. **Speeding up queries towards the beginning of a file, that'd be magic!** ✨
+When you modify a long file at the beginning of the file, Merlin can be very slow. <span style="color:green">**Speeding up queries towards the beginning of a file would be be magic!**</span> ✨
 
 #### Take-away from performance analysis
-The typer is the main performance bottleneck. The query analysis can also be a bottleneck. **Partly parallelising the typing and the query analysis would be magic!** ✨
+The typer is the main performance bottleneck. The query analysis can also be a bottleneck. <span style="color:green">**Partly parallelising the typing and the query analysis would be magic!**</span> ✨
 
 #### Take-away from the demo
-VSCode (and other editors) send cancellation requests to OCamlLSP that are currently mostly ignored. **If cancellation requests could be handled, that’d be magic!** ✨
+VSCode (and other editors) send cancellation requests to OCamlLSP that are currently mostly ignored. <span style="color:green">**If cancellation requests could be handled, that’d be magic!**</span> ✨
 
 
 {include src=carine.md}

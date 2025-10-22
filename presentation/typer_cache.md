@@ -15,5 +15,6 @@
 
 {pause}
 
--> When you modify code near the top of a file, Merlin needs to retype most of the file.
-Changes near the end have little impact as almost all previous typing results can be reused.
+When you modify code near the top of a file, Merlin needs to retype most of the file.
+
+When you modify code near the bottom of a file, Merlin can draw most items from the typer cache.
