@@ -15,7 +15,7 @@ dimension: 16:9
 
 ## Content
 
-1. ~~OCaml 🐪~~
+1. OCaml 🐪 (quick)
 2. OCaml's language server Merlin 🧙‍♀️
    - Demo
    - Merlin's control flow and performance
