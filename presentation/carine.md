@@ -30,6 +30,8 @@
 > > # 🌱 Shared Memory Parallelism
 > >
 > > {pause}
+> > {unreveal=domain-example}
+> >
 > > {include src="cancellation_extra.md"}
 > >
 > > {.block title="Domains" pause}
@@ -38,11 +40,13 @@
 > > A domain in OCaml is a **parallel execution unit** that has its own minor heap, and execution stack.
 > > Domains allow OCaml programs to run **code in parallel on multiple CPU** cores without a global runtime lock.
 > >
+> > {pause}
+> >
+> > **Rule of thumb:** Spawn the domains at the start of the world and keep them waiting until they are needed.
+> >
 > > ---
 > >
-> > {pause}
-> > ### Some Parallelism in Merlin
-> >
+> > {reveal="domain-example"}
 > >
 > > {style="display: flex; gap: 1rem; position:relative"}
 > > > {slip}
@@ -207,11 +211,11 @@ And also, it seemed very fun to try (and it was)!
 {.svg-container-carine include src=images/complete_graph.svg} 
 
 ----
-## With mutexes
+## With mutex
 {.svg-container-carine include src=images/complete_graph_with_mutex2.svg} 
 
 ----
-## Something else to improve
+## Another Bumps: Cancellation Mechanism
 {.svg-container-carine include src=images/complete_graph_last.svg} 
 
 

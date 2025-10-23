@@ -267,10 +267,7 @@ Problem: When you modify a long file at the beginning of the file, Merlin can be
 {include src=carine.md}
 
 {pause up}
-
 ## Some metrics
-
-{pause up}
 
 {style="display:flex; gap:5rem; position:relative; margin-top:1px; margin-bottom:1px"}
 > > ![](compa_metrics_lsp_mixed.png){ style="height:8em;" }
@@ -301,8 +298,6 @@ Problem: When you modify a long file at the beginning of the file, Merlin can be
 > >
 > > P25: 41% faster 🥳
 
-
-{unfocus}
 
 {pause up}
 ## Conclusion
