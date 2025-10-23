@@ -28,7 +28,7 @@ dimension: 16:9
 
 <!-- **Heads-up**: We're presenting an experiment. You'll see in Section 4. that there _are_ clear performance improvements, but also still things to improve and understand. -->
 
-{pause up-at-unpause=questions}
+<!-- {pause up-at-unpause=questions}
 
 ## A few questions {#questions}
 
@@ -40,9 +40,9 @@ dimension: 16:9
   {pause}
 - Who of you knows what LSP (langauge server protocol) is? 💬🖥️📋
   {pause}
-- Who of you knows what a language server is? 💬🖥️
+- Who of you knows what a language server is? 💬🖥️ -->
 
-{pause up-at-unpause=ocaml}
+{pause up}
 
 ## OCaml 🐪 {#ocaml}
 
