@@ -26,7 +26,7 @@ dimension: 16:9
 
 <!-- {pause} -->
 
-<!-- **Heads-up**: We're presenting an experiment. You'll see in Section 4. that there _are_ clear performance improvements, but also still things to improve and understand. -->
+**Heads-up**: We're presenting an experiment. You'll see in Section 4. that there _are_ clear performance improvements, but also still things to improve and understand.
 
 <!-- {pause up-at-unpause=questions}
 
