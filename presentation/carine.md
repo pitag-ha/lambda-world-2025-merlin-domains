@@ -1,7 +1,7 @@
 {include src=summary.md}
 
 {unfocus pause up #ocaml5}
-## Brewing New Magics with OCaml 5
+## Brewing New Magic Tricks with OCaml 5
 
 <!-- {pause style="text-align:center" up-at-unpause=ocaml5} -->
 <style>

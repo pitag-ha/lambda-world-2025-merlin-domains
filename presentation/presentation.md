@@ -165,18 +165,101 @@ There are two cache mechanisms:
 When you modify a long file at the beginning of the file, Merlin can be very slow. <span style="color:green">**Speeding up queries towards the beginning of a file would be be magic!**</span> ✨
 
 {pause up}
-
+{unreveal="parallelization cancellation earlytypereturn"}
 ## Take-aways 🍕🍣
+
+#### Take-away from performance analysis
+The typer is the main performance bottleneck. The query analysis can also be a bottleneck. 
+[<span style="color:green">**Partly parallelising the typing and the query analysis would be magic!**</span> ✨]{#parallelization}
+
+#### Take-away from the demo
+VSCode (and other editors) send cancellation requests to OCamlLSP that are currently mostly ignored. [<span style="color:green">**The ability to cancel the processing of a query would be magic!**</span> ✨]{#cancellation}
 
 #### Take-away from the typer cache
 
-When you modify a long file at the beginning of the file, Merlin can be very slow. <span style="color:green">**Speeding up queries towards the beginning of a file would be be magic!**</span> ✨
+When you modify a long file at the beginning of the file, Merlin can be very slow. 
+[<span style="color:green">**Speeding up queries towards the beginning of a file would be be magic!**</span> ✨]{#earlytypereturn}
 
-#### Take-away from performance analysis
-The typer is the main performance bottleneck. The query analysis can also be a bottleneck. <span style="color:green">**Partly parallelising the typing and the query analysis would be magic!**</span> ✨
 
-#### Take-away from the demo
-VSCode (and other editors) send cancellation requests to OCamlLSP that are currently mostly ignored. <span style="color:green">**If cancellation requests could be handled, that’d be magic!**</span> ✨
+{step}
+
+{reveal=parallelization}
+
+{reveal=cancellation}
+
+{reveal=earlytypereturn}
+
+
+{style="display: flex; gap: 5rem; position:relative"}
+> > {pause .block}
+> > > **Early type return**: if you need the type of a top-level item line 10, Merlin does not need to type what comes after.
+> >
+> > {pause}
+> >
+> > Works well most of the time! 
+> >
+> > With some rare exceptions, e.g. value restriction.
+> 
+> > {pause}
+> > {carousel change-page='~n:"all"'}
+> > ----
+> > 
+> > ---
+> > 
+> > >```ocaml
+> > > let a = ref [] 
+> > >
+> > >
+> > >
+> > > 
+> > > (*    end of buffer *)
+> > >```
+> > 
+> > ---
+> > 
+> > >```ocaml
+> > > let a = ref [] 
+> > > (* '_weak list ref *)
+> > >
+> > >
+> > > 
+> > > (*    end of buffer *)
+> > >```
+> > 
+> > ---
+> > 
+> > >```ocaml
+> > > let a = ref [] 
+> > > 
+> > > 
+> > > a := [ 1 ] 
+> > > 
+> > > (*    end of buffer *)
+> > > ```
+> > 
+> > ---
+> > 
+> > >```ocaml
+> > > let l = ref [] 
+> > > (* int list ref *)
+> > > 
+> > >  a := [ 1 ]
+> > >
+> > > (*    end of buffer *)
+> > > ```
+> > 
+> > ----
+
+
+{pause up-at-unpause=cancel}
+
+
+<style>
+.svg-container-small svg {
+  width: 100%;
+  height: auto;
+}
+</style>
 
 
 {include src=carine.md}
