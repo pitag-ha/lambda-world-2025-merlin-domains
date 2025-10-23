@@ -1,16 +1,16 @@
 ```ocaml
-type _ Effect.t += Love : unit t
+type _ Effect.t += Love : unit Effect.t
 
 let foo () =
   Format.printf "I ";
-  perform Love;
+  Effect.perform Love;
   Format.printf " Lambda World!@."
 
 (* Prints "I ♥ Lambda World!"*)
 let main () =
   match foo () with
   | () -> ()
-  | effect Love, k ->
+  | Effect.effect Love, k ->
     Format.printf "%s" "♥";
-    continue k ()
+    Effect.continue k ()
 ```

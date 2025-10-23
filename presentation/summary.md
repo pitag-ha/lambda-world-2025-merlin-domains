@@ -16,16 +16,19 @@
 
 
 {pause up #cancel}
-## ✨ Cancellation Mechanism 
+## 🪄 Some parallelism
 
-<!-- {pause unreveal #cancel_text} -->
+Between the computation of the pipeline and the query analysis.
+
 {pause}
+## ✨ A cancellation mechanism 
+
 > Ability to cancel the current query if a new one comes up.
 > 
 
 
 {#partial pause}
-## ⚡️ Early Type Return
+## ⚡️ Early type return
 
 <!-- {reveal="cancel_text"} -->
 
@@ -42,7 +45,7 @@
 > >
 > > Work in  most of the time! 
 > >
-> > Except: value restriction.
+> > Except (e.g. value restriction)
 > >
 > > {pause}
 > > {carousel change-page='~n:"all"'}
@@ -51,7 +54,7 @@
 > > ---
 > > 
 > > >```ocaml
-> > > let l = ref [] 
+> > > let a = ref [] 
 > > >
 > > >
 > > >
@@ -62,7 +65,7 @@
 > > ---
 > > 
 > > >```ocaml
-> > > let l = ref [] 
+> > > let a = ref [] 
 > > > (* '_weak1 list ref *)
 > > >
 > > >
@@ -73,11 +76,11 @@
 > > ---
 > > 
 > > >```ocaml
-> > > let l = ref [] 
+> > > let a = ref [] 
 > > > 
 > > > 
-> > >  l := [ 1 ] 
-> > >
+> > >  a := [ 1 ] 
+> > > (* let () = a := [ 1 ] *)
 > > > (* end of buffer *)
 > > > ```
 > > 
@@ -87,7 +90,7 @@
 > > > let l = ref [] 
 > > > (* int list ref *)
 > > > 
-> > >  l := [ 1 ]
+> > >  a := [ 1 ]
 > > >
 > > > (* end of buffer *)
 > > > ```

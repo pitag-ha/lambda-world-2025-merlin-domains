@@ -6,15 +6,21 @@
 <!-- {pause style="text-align:center" up-at-unpause=ocaml5} -->
 <style>
 .svg-container-carine svg {
-  width: 60%;
+  width: 55%;
   height: auto;
 }
 </style>
 
+<style>
+.svg-container-3 svg {
+  width: 180%;
+  height: auto;
+}
+</style>
 
 <style>
 .svg-container-cfg svg {
-  width: 40%;
+  width: 60%;
   height: auto;
 }
 </style>
@@ -35,7 +41,7 @@
 > > ---
 > >
 > > {pause}
-> > ### Cancellation mechanism
+> > ### Some Parallelism in Merlin
 > >
 > >
 > > {style="display: flex; gap: 1rem; position:relative"}
@@ -46,15 +52,16 @@
 > > > >
 > > > > ---
 > > > >
-> > > > ## Control Flow Graph
-> > > > {.svg-container-cfg include src=merlin_cfd_with_typer.svg}
-> > > >
-> > > > ---
-> > > > ## Sequence Diagram
-> > > > {.svg-container-carine include src=images/detail_graph_to_temporal_small.svg}  
+> > > > # Control Flow Graph
+> > > > {style="display: flex; gap: 1rem; position:relative"}
+> > > > > > {.svg-container-cfg include src=merlin_cfd_with_typer.svg}
+> > > > >
+> > > > > > 
+> > > > > > {.svg-container-3 include src=images/detail_graph_to_temporal_small.svg}  
 > > > > 
 > > > > ---
-> > > > {.svg-container-carine pause include src=images/cancellation2.svg} 
+> > > > # Sequence Diagram
+> > > > {.svg-container-carine pause include src=images/cancellation2.svg style="text-align:center"} 
 > > > > {unreveal="step2-1 step3-1 step4-1"}
 > > > >
 > > > > {reveal="step2-1"}
@@ -65,9 +72,9 @@
 > > > > 
 > > > > ----
 > > >
-> > > {slip}
+> > > <!-- {slip}
 > > > > {pause}
-> > > > {.svg-container-carine include src=images/cancellation.svg} 
+> > > > {.svg-container-carine include src=images/cancellation.svg}  
 > > > > {unreveal="step2-2 step3-2 step4-2 step5-2 step6-2"}
 > > > >
 > > > > {reveal="step2-2"}
@@ -78,7 +85,7 @@
 > > > >
 > > > > {reveal="step5-2"}
 > > > >
-> > > > {reveal="step6-2"}
+> > > > {reveal="step6-2"}-->
 > > > >
 > > > > 
 > > >
@@ -109,7 +116,7 @@
 > > ---
 > >
 > > {pause up-at-unpause=my-carousel}
-> > {.svg-container-carine include src=images/partial_typing.svg } 
+> > {.svg-container-carine include src=images/partial_typing.svg style="text-align:center"} 
 > > {unreveal="step2-3 step3-3 step4-3 step4a-3 step4b-3 step5-3 step6-3"}
 > > 
 > > {change-page=my-carousel}
