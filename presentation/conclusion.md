@@ -56,18 +56,3 @@ Keep improving and trying to understand what we currently have:
 Explore other designs:
 - data-race free design with OXcaml
 - other way of sharing the work between multiple domains
-
-{style="display: flex; position:relative"}
-> > ![](images/camel_skatting.gif){width=180px}
->
-> > ![](images/camel_humping.gif){width=180px}
->
-> > ![](images/camel_balling.gif){width=180px}
->
-> > ![](images/camel_yoyoing.gif){width=180px}
->
-> > ![](images/camel_super.gif){width=180px}
->
-> > ![](images/camel_walking.gif){width=180px}
->
-> > ![](images/camel_rolling.gif){width=180px}

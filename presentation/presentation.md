@@ -305,8 +305,9 @@ Problem: When you modify a long file at the beginning of the file, Merlin can be
 {unfocus}
 
 {pause up}
-
-
 ## Conclusion
 
 {include src=conclusion.md}
+
+{pause up}
+{include src=credits.md}
