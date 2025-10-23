@@ -41,11 +41,11 @@
 
 
 {change-page="camel-carousel2"}
-{reveal=plat-first-part}
+{reveal="plat-first-part plat-second-part"}
 
 {change-page="camel-carousel2"}
 
-{reveal=plat-second-part}
+<!-- {reveal=plat-second-part} -->
 {change-page="camel-carousel2"}
 
 {change-page="camel-carousel2"}
@@ -68,15 +68,16 @@
 
 **Applications and Strengths**
 
-{change-page="camel-carousel1"}
-
-{change-page="camel-carousel1"}
-{pause}
 - High dynamic range — OCaml scales from quick scripts and research prototypes to large production systems.
 - Compilers & languages — early versions of the Rust compiler, the WebAssembly reference interpreter, and Meta’s Hack language were written in OCaml.
 - Frontend development — Ahrefs’ entire frontend is written in OCaml and compiled to JavaScript.
 - Systems programming — used in Docker for Mac/Windows for container virtualization; Parsimoni (a Tarides spinoff) launched OCaml-based software into space.
 - Hardware design — HardCaml enables FPGA programming in OCaml; it has powered award-winning entries in the ZPrize competition for zero-knowledge cryptography.
+
+
+{change-page="camel-carousel1"}
+
+<!-- {change-page="camel-carousel1"} -->
 
 ----
 
