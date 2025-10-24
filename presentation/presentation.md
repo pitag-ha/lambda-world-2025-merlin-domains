@@ -234,11 +234,11 @@ When you modify a long file at the beginning of the file, Merlin can be very slo
 Merlin is generally very fast. There are some concrete cases with performance issues particularly with very very long files or very large projects.
 
 #### Parallelization
-Problem (see the metric tables): The typer is the main performance bottleneck. The query analysis can also be a bottleneck. 
+Problem : The typer is the main performance bottleneck. The query analysis can also be a bottleneck. 
 
 <span style="color:green">**Solution: Let's try to parallelize the typing and the query analysis**</span> ✨
 
-#### Cancellation mechanismi
+#### Cancellation mechanism
 Problem: VSCode (and other editors) send cancellation requests to OCamlLSP that are currently mostly ignored. 
 
 <span style="color:green">**Solution: Let's implement a mechanism in Merlin to cancel a query.**</span> ✨
