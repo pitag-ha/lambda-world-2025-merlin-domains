@@ -21,7 +21,7 @@ This talk was presented by Sonja Heinze and Carine Morel from
 
 
 ## Credits 🐫
-Powered by Slipshow ![](images/logo-slipshow.svg){width=40px} 
+Powered by Slipshow ![](images/logo-slipshow.svg){width=40px} (Slipshow is the tool we've used to create our "slides". Of course, written in OCaml! 🐪❤️)
 
 Huge thanks to Benjamin for the camel GIFs,
 

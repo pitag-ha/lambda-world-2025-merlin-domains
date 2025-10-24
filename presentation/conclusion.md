@@ -39,13 +39,6 @@ Most likely. We are currently exploring!
 - (short term) guarantee data race freedom
 - (long term) other way of sharing the work between multiple domains
 
-{pause up .block}
-What we've learned ?
-
-- Merlin can be made parallel! 🥳 
-- Making it more efficient, more parallel, will require way more refactoring.
-- More insight on performance bottlenecks 
-
 {pause .block}
 What next ?
 
