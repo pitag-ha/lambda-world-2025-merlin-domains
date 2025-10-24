@@ -29,7 +29,7 @@ OR
 
 We are also exploring using a static way to enforce data-race freedom with modes thanks to a branch of OCaml called OxCaml.
 
-{pause up="q3" .block}
+{pause up="q3" #design .block}
 Could some design be better ?
 
 {pause}
@@ -39,7 +39,7 @@ Most likely. We are currently exploring!
 - (short term) guarantee data race freedom
 - (long term) other way of sharing the work between multiple domains
 
-{pause .block}
+{pause up-at-unpause=design .block}
 What next ?
 
 Keep improving and trying to understand what we currently have:
