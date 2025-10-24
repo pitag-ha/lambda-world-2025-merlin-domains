@@ -3,7 +3,7 @@
 Is it working ?
 
 {pause} 
-Yes!
+Yes and without major refactoring.
 
 {pause .block}
 Do we still have data races ?
