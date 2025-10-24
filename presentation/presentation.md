@@ -216,7 +216,7 @@ When you modify a long file at the beginning of the file, Merlin can be very slo
 > > ---
 > > 
 > > >```ocaml
-> > > let l = ref [] 
+> > > let a = ref [] 
 > > > (* int list ref *)
 > > > 
 > > >  a := [ 1 ]
