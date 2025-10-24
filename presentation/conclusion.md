@@ -30,7 +30,7 @@ OR
 We are also exploring using a static way to enforce data-race freedom with modes thanks to a branch of OCaml called OxCaml.
 
 {pause up="q3" .block}
-Would some design be better ?
+Could some design be better ?
 
 {pause}
 Most likely. We are currently exploring!

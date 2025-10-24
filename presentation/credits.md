@@ -25,6 +25,6 @@ Powered by Slipshow ![](images/logo-slipshow.svg){width=40px}
 
 Huge thanks to Benjamin for the camel GIFs,
 
-Xavier and Timéo for their awesome work,
+Xavier, Abby and Timéo for their awesome work with us,
 
 and Paul-Elliot for the 24/7 Slipshow support line!
