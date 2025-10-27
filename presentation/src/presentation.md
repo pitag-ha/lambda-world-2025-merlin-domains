@@ -2,7 +2,7 @@
 dimension: 16:9
 ---
 
-<!-- slipshow serve -o presentation/presentation.html presentation/presentation.md -->
+<!-- slipshow serve -o docs/presentation.html presentation/src/presentation.md -->
 
 {#beginning}
 
