@@ -5,11 +5,11 @@
 
 {carousel change-page='~n:"all"'}
 -----
-![](typer.svg)
+![](images/typer.svg)
 
 ---
 
-![](typer_with_cache.svg)
+![](images/typer_with_cache.svg)
 
 -----
 

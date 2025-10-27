@@ -58,7 +58,7 @@
 > > > >
 > > > > # Control Flow Graph
 > > > > {style="display: flex; gap: 1rem; position:relative"}
-> > > > > > {.svg-container-cfg include src=merlin_cfd_with_typer.svg}
+> > > > > > {.svg-container-cfg include src=images/merlin_cfd_with_typer.svg}
 > > > > >
 > > > > > > 
 > > > > > > {.svg-container-3 include src=images/detail_graph_to_temporal_small.svg}  

@@ -64,7 +64,7 @@ Live demo!
 
 🌳 And this is a tree in Cádiz:
 
-![](arbol_magico_cadiz.png){ style="width:400px; vertical-align:middle; margin-right:2em;" }
+![](images/arbol_magico_cadiz.png){ style="width:400px; vertical-align:middle; margin-right:2em;" }
 <span id="AST" style="vertical-align:middle;"> ----> Let's talk about ASTs. </span>
 
 {reveal=AST}
@@ -91,12 +91,12 @@ The compiler frontend builds up these different representations of your program 
 
 {pause}
 
-![](pipeline_with_typer.svg)
+![](images/pipeline_with_typer.svg)
 
 {pause up}
 {unreveal=g6}
 {#cfd}
-{.svg-container include src=merlin_cfd_with_typer.svg #cfd}
+{.svg-container include src=images/merlin_cfd_with_typer.svg #cfd}
 
 <style>
 .svg-container svg {
@@ -115,7 +115,7 @@ The compiler frontend builds up these different representations of your program 
 
 {.block}
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](perf_lsp_types_3.png){ style="height:8em;" }
+> > ![](images/perf_lsp_types_3.png){ style="height:8em;" }
 >
 > > Ok, we knew that editor support on this file is slow, because it's long.
 > >
@@ -124,14 +124,14 @@ The compiler frontend builds up these different representations of your program 
 
 <!-- {.block}
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](perf_lsp_2.png){ style="height:8em;" }
+> > ![](images/perf_lsp_2.png){ style="height:8em;" }
 >
 > > On the whole code base it's quite ok. -->
 
 
 {.block #perf_js}
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](perf_js_3.png){ style="height:8em;" }
+> > ![](images/perf_js_3.png){ style="height:8em;" }
 >
 > > Note: Fully cold cache is not really a real-world scenario. We only use it for analysis.
 > >
@@ -270,7 +270,7 @@ Problem: When you modify a long file at the beginning of the file, Merlin can be
 ## Some metrics
 
 {style="display:flex; gap:5rem; position:relative; margin-top:1px; margin-bottom:1px"}
-> > ![](compa_metrics_lsp_mixed.png){ style="height:8em;" }
+> > ![](images/compa_metrics_lsp_mixed.png){ style="height:8em;" }
 >
 > > In P95: 12% faster
 > >
@@ -281,7 +281,7 @@ Problem: When you modify a long file at the beginning of the file, Merlin can be
 <hr/>
 
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](compa_metrics_irmin_mixed.png){ style="height:8em;" }
+> > ![](images/compa_metrics_irmin_mixed.png){ style="height:8em;" }
 >
 > > In P95: 20,5% faster
 > >
@@ -292,7 +292,7 @@ Problem: When you modify a long file at the beginning of the file, Merlin can be
 <hr/>
 
 {style="display:flex; gap:5rem; position:relative"}
-> > ![](compa_metrics_lsp_types_cold.png){ style="height:8em;" }
+> > ![](images/compa_metrics_lsp_types_cold.png){ style="height:8em;" }
 >
 > > P95: 8% slower 😲
 > >
